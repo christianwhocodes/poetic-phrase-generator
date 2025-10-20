@@ -23,12 +23,23 @@ function stopLoading(name, url, quote) {
   quoteSpan.textContent = quote;
 }
 
+export function setAvatarFromGravatar(hash, size) {
+  const avatarEl = document.querySelector(".avatar");
+  if (!avatarEl) return;
+  const safeHash = hash || "00000000000000000000000000000000";
+  const safeSize = Number(size) || 200;
+  avatarEl.src = `https://www.gravatar.com/avatar/${safeHash}?s=${safeSize}&d=mp&r=g`;
+}
+
 export async function generateTextAndImage(
   name,
   favActivity,
   favPlace,
   temperature,
+  gravatarHash,
+  gravatarSize,
 ) {
+  setAvatarFromGravatar(gravatarHash, gravatarSize);
   startLoading();
   let url = await getImage(favPlace);
   let quote = await getQuote(favActivity, favPlace, temperature);

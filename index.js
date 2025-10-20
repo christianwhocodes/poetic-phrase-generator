@@ -14,16 +14,17 @@ let favoritePlace = "church";
 // The higher temperature, the more random & experimental output
 let temperature = 0.5;
 
-// Use Gravatar only (no local avatar.jpg)
-const gravatarHash = "2ac9d9aafa28d9913b632fbd83545ab8"; // MD5 of your email (trimmed, lowercased)
+// 5. Configure your avatar using Gravatar
+// MD5 hash of your email (trimmed, lowercased) See README for instructions
+// Size in pixels
+const gravatarHash = "2ac9d9aafa28d9913b632fbd83545ab8";
 const gravatarSize = 200; // px
-const avatarEl = document.querySelector(".avatar");
-if (avatarEl) {
-  const safeHash = gravatarHash || "00000000000000000000000000000000";
-  avatarEl.src = `https://www.gravatar.com/avatar/${safeHash}?s=${gravatarSize}&d=mp&r=g`;
-}
 
-// Optional: delete "avatar.jpg" and add a photo of yourself
-// (remember to use "avatar.jpg" as the name of your photo)
-
-generateTextAndImage(name, favoriteActivity, favoritePlace, temperature);
+generateTextAndImage(
+  name,
+  favoriteActivity,
+  favoritePlace,
+  temperature,
+  gravatarHash,
+  gravatarSize
+);

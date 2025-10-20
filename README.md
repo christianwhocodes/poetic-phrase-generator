@@ -57,10 +57,11 @@ Generates a short, witty, Wildean-style poetic phrase paired with a fitting back
 ## Optional: Use Gravatar for the avatar
 
 1. Compute the MD5 of your email (trimmed, lowercased). Examples:
-   - Node: 
+   - Node:
    ```shell
    node -e "console.log(require('crypto').createHash('md5').update('you@example.com'.trim().toLowerCase()).digest('hex'))"
    ```
+
    - Online MD5 tools also work.
 2. In index.js set:
    - gravatarHash to your MD5
