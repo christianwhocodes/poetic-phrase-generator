@@ -22,8 +22,7 @@ Generates a short, witty, Wildean-style poetic phrase paired with a fitting back
    - favoritePlace
    - temperature (0–1; higher = more creative)
 4. Optional:
-   - Replace avatar.jpg with your own image (keep the same filename).
-   - Replace loading.gif if desired.
+   - Adjust Gravatar size (gravatarSize) or default style (d=mp) in index.js.
 
 ## How It Works
 
@@ -54,3 +53,16 @@ Generates a short, witty, Wildean-style poetic phrase paired with a fitting back
 
 - Unsplash for images.
 - OpenAI (via Scrimba proxy) for text generation.
+
+## Optional: Use Gravatar for the avatar
+
+1. Compute the MD5 of your email (trimmed, lowercased). Examples:
+   - Node: 
+   ```shell
+   node -e "console.log(require('crypto').createHash('md5').update('you@example.com'.trim().toLowerCase()).digest('hex'))"
+   ```
+   - Online MD5 tools also work.
+2. In index.js set:
+   - gravatarHash to your MD5
+   - gravatarSize (optional)
+3. If no Gravatar exists for your email, a neutral silhouette (mp) is shown.
